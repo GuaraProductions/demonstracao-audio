@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8y2x7m9b4v1"]
+
+[ext_resource type="Script" path="res://scenes/main_launcher.gd" id="1_launcher_script"]
+
+[node name="MainLauncher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_launcher_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.117647, 0.160784, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "🔊 Godot 4 Audio Demonstrations"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+theme_override_font_sizes/font_size = 18
+text = "Select a scene to explore Godot's audio nodes and Autoload AudioManager"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="BtnDemo1" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "1. AudioStreamPlayer
+(Global / UI Audio)"
+
+[node name="BtnDemo2" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "2. AudioStreamPlayer2D
+(2D Spatial & Attenuation)"
+
+[node name="BtnDemo3" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "3. AudioStreamPlayer3D
+(3D Spatial & Distance Curves)"
+
+[node name="BtnDemo4" type="Button" parent="MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "4. AudioManager Autoload
+(Scene Transition & Crossfade)"

@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://d3sp3d01a3b3"]
+
+[ext_resource type="Script" uid="uid://rgl2vipai7l3" path="res://scenes/demo_3_3d/demo_3d.gd" id="1_3d_script"]
+
+[node name="Demo3D" type="Node3D" unique_id=9935222]
+script = ExtResource("1_3d_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1961981818]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1159897726]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=532001973]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 3, 9)
+current = true
+
+[node name="SpeakerMesh" type="MeshInstance3D" parent="." unique_id=1870848000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SpeakerMesh" unique_id=103516779]
+max_distance = 25.0
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=532726638]
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer" unique_id=1045575050]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/MarginContainer" unique_id=1883223834]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxHeader" type="HBoxContainer" parent="UILayer/MarginContainer/VBox" unique_id=1646555509]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="UILayer/MarginContainer/VBox/HBoxHeader" unique_id=752899324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 38)
+layout_mode = 2
+text = "⬅ Main Menu"
+
+[node name="Title" type="Label" parent="UILayer/MarginContainer/VBox/HBoxHeader" unique_id=1994314083]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Demo 3: AudioStreamPlayer3D (3D Spatial Audio)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="UILayer/MarginContainer/VBox" unique_id=1611072906]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
+text = "AudioStreamPlayer3D attenuates volume based on 3D distance and simulates pitch-shift Doppler effects as objects move relative to the Camera3D/Listener."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="UILayer/MarginContainer/VBox" unique_id=451501903]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="PanelControls" type="PanelContainer" parent="UILayer/MarginContainer/VBox" unique_id=930468269]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="UILayer/MarginContainer/VBox/PanelControls" unique_id=1163675680]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxInner" type="VBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin" unique_id=107295772]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxButtons" type="HBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner" unique_id=545964797]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnPlay" type="Button" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxButtons" unique_id=1271581642]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 38)
+layout_mode = 2
+text = "▶ Play 3D Sound Loop"
+
+[node name="BtnOrbit" type="Button" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxButtons" unique_id=1945582794]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 38)
+layout_mode = 2
+text = "🔄 Toggle 3D Orbiting"
+
+[node name="GridControls" type="GridContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner" unique_id=1165017498]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="Lbl" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=1587481330]
+layout_mode = 2
+text = "Attenuation Model:"
+
+[node name="OptionAttenuation" type="OptionButton" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=2060815627]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblUnit" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=350784064]
+layout_mode = 2
+text = "Unit Size:"
+
+[node name="HBoxUnit" type="HBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=138092301]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SliderUnitSize" type="HSlider" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls/HBoxUnit" unique_id=377634964]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 20.0
+step = 0.5
+value = 10.0
+
+[node name="LblUnitSizeVal" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls/HBoxUnit" unique_id=306445419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+text = "10.0"
+
+[node name="LblDoppler" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=1587481331]
+layout_mode = 2
+text = "Doppler Tracking:"
+
+[node name="OptionDoppler" type="OptionButton" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=2060815629]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LblSpeed" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=1587481332]
+layout_mode = 2
+text = "Orbit Speed:"
+
+[node name="HBoxSpeed" type="HBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls" unique_id=138092302]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SliderSpeed" type="HSlider" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls/HBoxSpeed" unique_id=2060815630]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 1.0
+
+[node name="LblSpeedVal" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/GridControls/HBoxSpeed" unique_id=1587481333]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+text = "1.0x"
+
+[node name="LblMetrics" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner" unique_id=598963299]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 0.5, 1)
+text = "3D Distance: 0.00 m | Speed: 0.0 m/s | Unit Size: 10.0 | Model: Inverse Distance (Default) | Doppler: Disabled"
+horizontal_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2sp2d01a2b2"]
+
+[ext_resource type="Script" path="res://scenes/demo_2_2d/demo_2d.gd" id="1_2d_script"]
+
+[node name="Demo2D" type="Node2D"]
+script = ExtResource("1_2d_script")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.14, 0.18, 1)
+
+[node name="Listener" type="AudioListener2D" parent="."]
+position = Vector2(576, 360)
+
+[node name="ListenerMarker" type="Node2D" parent="."]
+position = Vector2(576, 360)
+
+[node name="Speaker" type="Node2D" parent="."]
+position = Vector2(300, 360)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Speaker"]
+max_distance = 400.0
+
+[node name="SpeakerGraphic" type="ColorRect" parent="Speaker"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.95, 0.35, 0.35, 1)
+
+[node name="Label" type="Label" parent="Speaker"]
+offset_left = -40.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 47.0
+text = "Drag Me!"
+horizontal_alignment = 1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="UILayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxHeader" type="HBoxContainer" parent="UILayer/MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="UILayer/MarginContainer/VBox/HBoxHeader"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+text = "⬅ Main Menu"
+
+[node name="Title" type="Label" parent="UILayer/MarginContainer/VBox/HBoxHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Demo 2: AudioStreamPlayer2D (Positional Audio)"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="UILayer/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
+text = "AudioStreamPlayer2D adjusts panning (left/right speaker) and attenuation (volume dropoff) based on distance between the speaker node and AudioListener2D."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="UILayer/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="PanelControls" type="PanelContainer" parent="UILayer/MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="UILayer/MarginContainer/VBox/PanelControls"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxInner" type="VBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxControls" type="HBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BtnPlay" type="Button" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxControls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+text = "▶ Play Continuous 2D Loop"
+
+[node name="BtnSFX" type="Button" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxControls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+text = "💥 One-Shot SFX"
+
+[node name="HBoxSlider" type="HBoxContainer" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Lbl" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxSlider"]
+layout_mode = 2
+text = "Max Distance (Attenuation):"
+
+[node name="SliderMaxDist" type="HSlider" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxSlider"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 100.0
+max_value = 800.0
+step = 10.0
+value = 400.0
+
+[node name="LblMaxDistVal" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner/HBoxSlider"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "400 px"
+
+[node name="LblMetrics" type="Label" parent="UILayer/MarginContainer/VBox/PanelControls/Margin/VBoxInner"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 0.5, 1)
+text = "Distance to Listener: 0 px"
+horizontal_alignment = 1

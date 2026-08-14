@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://d1gl0b2a1l01"]
+
+[ext_resource type="Script" uid="uid://c55o0s1okf601" path="res://scenes/demo_1_global/demo_global.gd" id="1_global_script"]
+
+[node name="DemoGlobal" type="Control" unique_id=204757507]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_global_script")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=587667709]
+mix_target = 2
+max_polyphony = 5
+
+[node name="Background" type="ColorRect" parent="." unique_id=2071769065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.12, 0.16, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1675414738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer" unique_id=998027344]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxHeader" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=200915712]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="MarginContainer/VBox/HBoxHeader" unique_id=1401924257]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+text = "⬅ Main Menu"
+
+[node name="Title" type="Label" parent="MarginContainer/VBox/HBoxHeader" unique_id=1660175271]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Demo 1: AudioStreamPlayer (Global / UI Audio)"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="MarginContainer/VBox" unique_id=1154326711]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.8, 0.9, 1)
+text = "AudioStreamPlayer is non-positional. It plays sound equally to both stereo channels everywhere in the scene, perfect for background music, menus, and UI clicks."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PanelControls" type="PanelContainer" parent="MarginContainer/VBox" unique_id=1641660742]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/VBox/PanelControls" unique_id=2139078599]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxControls" type="VBoxContainer" parent="MarginContainer/VBox/PanelControls/Margin" unique_id=961339317]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="HBoxButtons" type="HBoxContainer" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls" unique_id=1418684456]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BtnPlay" type="Button" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/HBoxButtons" unique_id=1369052499]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "▶ Play"
+
+[node name="BtnPause" type="Button" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/HBoxButtons" unique_id=1925803945]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "⏸ Pause"
+
+[node name="BtnStop" type="Button" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/HBoxButtons" unique_id=2032326057]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "⏹ Stop"
+
+[node name="CheckLoop" type="CheckBox" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/HBoxButtons" unique_id=773445806]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Loop Audio"
+
+[node name="GridSliders" type="GridContainer" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls" unique_id=774138497]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="LblPitch" type="Label" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=2048618007]
+layout_mode = 2
+text = "Pitch Scale:"
+
+[node name="SliderPitch" type="HSlider" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=263471395]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="LblPitchVal" type="Label" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=2040989347]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "1.00x"
+
+[node name="LblVolume" type="Label" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=1620924569]
+layout_mode = 2
+text = "Volume (Linear):"
+
+[node name="SliderVolume" type="HSlider" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=1446001681]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 1.0
+
+[node name="LblVolumeVal" type="Label" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls/GridSliders" unique_id=816214447]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "0.0 dB"
+
+[node name="LblStatus" type="Label" parent="MarginContainer/VBox/PanelControls/Margin/VBoxControls" unique_id=1902642675]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+text = "Status: STOPPED"
+horizontal_alignment = 1
